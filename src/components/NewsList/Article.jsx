@@ -1,5 +1,6 @@
-import { useNewsHistory } from '../../hooks/useNewsHistory'
 import PropTypes from 'prop-types'
+import React from 'react'
+import { useNewsHistory } from '../../hooks/useNewsHistory'
 import styles from './newsList.module.css'
 
 const Article = ({
@@ -10,8 +11,9 @@ const Article = ({
   author = 'No definido',
   urlToImage,
   loadingAsync = false,
-  saveToHistoryWhenClicked = false,
+  saveToHistoryWhenClicked = false
 }) => {
+  const [] = React.useState(false)
   const { addNoticiaToUserHistory } = useNewsHistory()
 
   const handle_addNoticiaToUserHistory = () => {
@@ -22,7 +24,7 @@ const Article = ({
         description,
         source,
         author,
-        urlToImage,
+        urlToImage
       })
     }
   }
@@ -32,8 +34,8 @@ const Article = ({
       <div className={styles.article__description}>
         <a
           href={url}
-          target="_blank"
-          rel="noreferrer"
+          target='_blank'
+          rel='noreferrer'
           onClick={handle_addNoticiaToUserHistory}
         >
           <h3 className={styles.title}>{title}</h3>
@@ -47,18 +49,18 @@ const Article = ({
       <a
         className={styles.article__image}
         href={url}
-        target="_blank"
-        rel="noreferrer"
+        target='_blank'
+        rel='noreferrer'
         onClick={handle_addNoticiaToUserHistory}
       >
         {loadingAsync ? (
           <img
             src={urlToImage}
             alt={title}
-            loading="lazy"
-            decoding="async"
-            width="300px"
-            height="250px"
+            loading='lazy'
+            decoding='async'
+            width='300px'
+            height='250px'
           />
         ) : (
           <img src={urlToImage} alt={title} />
@@ -76,7 +78,7 @@ Article.propTypes = {
   author: PropTypes.string,
   urlToImage: PropTypes.string.isRequired,
   loadingAsync: PropTypes.bool,
-  saveToHistoryWhenClicked: PropTypes.bool,
+  saveToHistoryWhenClicked: PropTypes.bool
 }
 
 export default Article

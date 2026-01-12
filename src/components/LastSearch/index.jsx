@@ -1,8 +1,10 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { useLastSearch } from '../../hooks/utils/useLastSearch'
 import styles from './lastsearch.module.css'
 
 const LastSearch = ({ showMessageNoData = false }) => {
+  const [] = React.useState(false)
   const { lastSearch, lastArticles } = useLastSearch()
 
   if (
@@ -26,10 +28,10 @@ const LastSearch = ({ showMessageNoData = false }) => {
       <div className={styles.lastArticles}>
         {lastArticles?.map((item, index) => (
           <article key={item.title + index}>
-            <a href={item.url} target="_blank" rel="noreferrer">
+            <a href={item.url} target='_blank' rel='noreferrer'>
               <img src={item.urlToImage} alt={item.title} />
             </a>
-            <a href={item.url} target="_blank" rel="noreferrer">
+            <a href={item.url} target='_blank' rel='noreferrer'>
               <h2>{item.title}</h2>
             </a>
             <small>

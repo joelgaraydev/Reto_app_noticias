@@ -1,3 +1,4 @@
+import React from 'react'
 import { HelmetProvider } from 'react-helmet-async'
 import AppRoutes from './routes/AppRoutes'
 import CurrentUserProvider from './state/context/currentUserProvider'
@@ -6,6 +7,8 @@ import { SuscriptionProvider } from './state/context/suscriptionProvider'
 import { ThemeProvider } from './state/context/themeProvider'
 
 function App() {
+  const [] = React.useState(false)
+
   return (
     <ThemeProvider>
       <CurrentUserProvider>

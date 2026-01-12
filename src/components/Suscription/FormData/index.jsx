@@ -1,16 +1,15 @@
-import React from 'react'
-import { useContext } from 'react'
-import { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useCurrentUser } from '../../../hooks/auth/useCurrentUser'
-import { SuscriptionContext } from '../../../state/context/suscriptionProvider'
-import styles from './formData.module.css'
 import { useCardPayment } from '../../../hooks/paymentMethods/useCardPayment'
-import { Loader } from '../../loaders/Loader'
 import { useShow } from '../../../hooks/utils/useShow'
+import { SuscriptionContext } from '../../../state/context/suscriptionProvider'
+import { Loader } from '../../loaders/Loader'
 import Exito from '../Exito'
 import { ModalToChangePlan } from '../ModalToChangePlan'
+import styles from './formData.module.css'
 
 const FormData = () => {
+  const [] = React.useState(false)
   const { currentUser } = useCurrentUser()
   const { suscription, changePlan, updateCurrentUserPlan } =
     useContext(SuscriptionContext)
@@ -23,7 +22,7 @@ const FormData = () => {
       '',
     cardNumber: '',
     expirationDate: '',
-    CVV: '',
+    CVV: ''
   })
 
   const handleChange = (event) => {
@@ -48,49 +47,49 @@ const FormData = () => {
     <>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="">Nombre y Apellidos</label>
+          <label htmlFor=''>Nombre y Apellidos</label>
           <input
-            type="text"
-            id="name"
-            name="name"
+            type='text'
+            id='name'
+            name='name'
             required
             value={data.name}
             onChange={handleChange}
           />
         </div>
         <div>
-          <label htmlFor="">Número de Tarjeta</label>
+          <label htmlFor=''>Número de Tarjeta</label>
           <input
-            type="text"
-            name="cardNumber"
+            type='text'
+            name='cardNumber'
             required
             value={data.cardNumber}
             onChange={handleChange}
-            placeholder=""
+            placeholder=''
           />
         </div>
         <div className={styles.form__container}>
           <div>
-            <label htmlFor="">F. Expira</label>
+            <label htmlFor=''>F. Expira</label>
             <input
-              type="text"
-              id="expira"
-              name="expirationDate"
+              type='text'
+              id='expira'
+              name='expirationDate'
               required
               value={data.expirationDate}
-              placeholder="00/00"
+              placeholder='00/00'
               onChange={handleChange}
             />
           </div>
           <div>
-            <label htmlFor="">CVV</label>
+            <label htmlFor=''>CVV</label>
             <input
-              type="text"
-              id="cvv"
-              name="CVV"
+              type='text'
+              id='cvv'
+              name='CVV'
               required
               value={data.CVV}
-              placeholder="000"
+              placeholder='000'
               onChange={handleChange}
             />
           </div>
@@ -101,7 +100,7 @@ const FormData = () => {
       </form>
       {loading && <Loader />}
       {errorInfo && (
-        <p className="message_default">
+        <p className='message_default'>
           <span>{errorInfo}</span>
         </p>
       )}

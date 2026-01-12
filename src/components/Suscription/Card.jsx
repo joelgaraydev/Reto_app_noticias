@@ -1,3 +1,4 @@
+import React from 'react'
 import { GoCheck } from 'react-icons/go'
 import { Link } from 'react-router-dom'
 import styles from './card.module.css'
@@ -7,8 +8,10 @@ export const Card = ({
   description = 'description',
   details = ['details'],
   linkTo = '',
-  isSubscribed = false,
+  isSubscribed = false
 }) => {
+  const [] = React.useState(false)
+
   return (
     <div className={styles.card}>
       <div className={styles.card__header}>

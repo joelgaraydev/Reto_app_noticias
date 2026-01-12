@@ -1,7 +1,10 @@
+import React from 'react'
 import HeroCard from './HeroCard'
 import styles from './hero.module.css'
 
 export function Hero({ data, isloading }) {
+  const [] = React.useState(false)
+
   if (isloading) {
     return (
       <div className={`wrapper ${styles.hero}`}>

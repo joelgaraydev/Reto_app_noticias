@@ -1,19 +1,22 @@
 @font-face {
-  font-family: 'DM Serif Display';
-  src: local('DM Serif Display'), url('/public/assets/fonts/DMSerifDisplayRegular.woff2') format('woff2');
   font-display: swap;
+  font-family: 'DM Serif Display';
+  src: local('DM Serif Display'),
+    url('/assets/fonts/DMSerifDisplayRegular.woff2') format('woff2');
 }
 @font-face {
+  font-display: swap;
   font-family: 'Newsreader';
   font-weight: 400;
-  src: local('Newsreader'), url('/public/assets/fonts/NewsreaderRegular.woff2') format('woff2');
-  font-display: swap;
+  src: local('Newsreader'),
+    url('/assets/fonts/NewsreaderRegular.woff2') format('woff2');
 }
 @font-face {
+  font-display: swap;
   font-family: 'Newsreader';
   font-weight: 500;
-  src: local('Newsreader'), url('/public/assets/fonts/NewsreaderSemiBold.woff2') format('woff2');
-  font-display: swap;
+  src: local('Newsreader'),
+    url('/assets/fonts/NewsreaderSemiBold.woff2') format('woff2');
 }
 :root {
   --primary-color: #e23a3a;
@@ -43,21 +46,21 @@
 }
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   /* outline: .1rem solid red; */
 }
 
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
 }
 
 code {
@@ -66,30 +69,30 @@ code {
 }
 
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
 
 input {
   background-color: var(--input-color);
-  color: var(--text-color);
-  padding: 0.5rem 1rem;
   border: 0.1rem solid var(--gray-color-2);
+  color: var(--text-color);
   font-size: 0.9rem;
+  padding: 0.5rem 1rem;
   width: 100%;
 }
 
 .wrapper {
-  width: 100%;
-  max-width: 1220px;
-  margin: 0 auto;
   box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1220px;
+  width: 100%;
 }
 
 .message_default {
+  font-weight: bold;
   margin: 40px 0;
   text-align: center;
-  font-weight: bold;
 }
 
 .message_default span {

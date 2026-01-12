@@ -1,15 +1,17 @@
+import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useCurrentUser } from '../../../hooks/auth/useCurrentUser'
 import { useRegisterUser } from '../../../hooks/auth/useRegisterUser'
 import styles from '../LoginForm/login.module.css'
 
 export function RegisterForm() {
+  const [] = React.useState(false)
   const { handleRegisterUser, loading, error, errorInfo } = useRegisterUser()
   const { checkCurrentUser } = useCurrentUser()
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm()
 
   const onSubmit = (data) => {
@@ -18,7 +20,7 @@ export function RegisterForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.loginForm}>
-      <label htmlFor="firstName" className={styles.loginForm__label}>
+      <label htmlFor='firstName' className={styles.loginForm__label}>
         *Nombre
       </label>
       <input
@@ -26,17 +28,17 @@ export function RegisterForm() {
           required: 'El nombre es requerido. ',
           maxLength: {
             value: 20,
-            message: 'El nombre debe tener un máximo de 20 caracteres. ',
+            message: 'El nombre debe tener un máximo de 20 caracteres. '
           },
           pattern: {
             value: /[a-zA-Z ]{2,254}$/,
-            message: 'El nombre no debe contener números. ',
-          },
+            message: 'El nombre no debe contener números. '
+          }
         })}
-        id="firstName"
+        id='firstName'
         className={styles.loginForm__input}
       />
-      <label htmlFor="lastName" className={styles.loginForm__label}>
+      <label htmlFor='lastName' className={styles.loginForm__label}>
         *Apellido Paterno
       </label>
       <input
@@ -45,17 +47,17 @@ export function RegisterForm() {
           maxLength: {
             value: 20,
             message:
-              'El apellido paterno debe tener un máximo de 20 caracteres. ',
+              'El apellido paterno debe tener un máximo de 20 caracteres. '
           },
           pattern: {
             value: /[a-zA-Z ]{2,254}$/,
-            message: 'El apellido paterno no debe contener números. ',
-          },
+            message: 'El apellido paterno no debe contener números. '
+          }
         })}
-        id="lastName"
+        id='lastName'
         className={styles.loginForm__input}
       />
-      <label htmlFor="secondLastName" className={styles.loginForm__label}>
+      <label htmlFor='secondLastName' className={styles.loginForm__label}>
         *Apellido Materno
       </label>
       <input
@@ -64,17 +66,17 @@ export function RegisterForm() {
           maxLength: {
             value: 20,
             message:
-              'El apellido materno debe tener un máximo de 20 caracteres. ',
+              'El apellido materno debe tener un máximo de 20 caracteres. '
           },
           pattern: {
             value: /[a-zA-Z ]{2,254}$/,
-            message: 'El apellido materno no debe contener números. ',
-          },
+            message: 'El apellido materno no debe contener números. '
+          }
         })}
-        id="secondLastName"
+        id='secondLastName'
         className={styles.loginForm__input}
       />
-      <label htmlFor="email" className={styles.loginForm__label}>
+      <label htmlFor='email' className={styles.loginForm__label}>
         *Correo
       </label>
       <input
@@ -82,27 +84,27 @@ export function RegisterForm() {
           required: 'El correo es requerido. ',
           maxLength: {
             value: 100,
-            message: 'El correo debe tener un máximo de 100 caracteres. ',
+            message: 'El correo debe tener un máximo de 100 caracteres. '
           },
           pattern: {
             value:
-            //eslint-disable-next-line
+              //eslint-disable-next-line
               /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-            message: 'El correo no es valido. ',
-          },
+            message: 'El correo no es valido. '
+          }
         })}
-        id="email"
+        id='email'
         className={styles.loginForm__input}
       />
-      <label htmlFor="phone" className={styles.loginForm__label}>
+      <label htmlFor='phone' className={styles.loginForm__label}>
         Celular
       </label>
       <input
         {...register('phone')}
-        id="phone"
+        id='phone'
         className={styles.loginForm__input}
       />
-      <label htmlFor="password" className={styles.loginForm__label}>
+      <label htmlFor='password' className={styles.loginForm__label}>
         *Contraseña
       </label>
       <input
@@ -110,19 +112,19 @@ export function RegisterForm() {
           required: 'La contraseña es requerida. ',
           maxLength: {
             value: 100,
-            message: 'La contraseña debe tener un máximo de 100 caracteres. ',
+            message: 'La contraseña debe tener un máximo de 100 caracteres. '
           },
           minLength: {
             value: 8,
-            message: 'La contraseña debe tener un mínimo de 8 caracteres. ',
-          },
+            message: 'La contraseña debe tener un mínimo de 8 caracteres. '
+          }
         })}
-        id="password"
-        type="password"
-        autoComplete="on"
+        id='password'
+        type='password'
+        autoComplete='on'
         className={styles.loginForm__input}
       />
-      <button type="submit" className={styles.loginForm__btn}>
+      <button type='submit' className={styles.loginForm__btn}>
         Registrarse
       </button>
       <div className={styles.loginForm__status}>

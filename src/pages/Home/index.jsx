@@ -3,38 +3,39 @@ import { Link } from 'react-router-dom'
 import { Header } from '../../components/layout/Header'
 import { Hero } from '../../components/layout/Hero'
 import NewsList from '../../components/NewsList/NewsList'
+import { ReadingAssistanceMenu } from '../../components/ReadingAssistanceMenu'
 import { useNewsByCategory } from '../../hooks/useNewsByCategory'
 import { newsCategories } from '../../services/newsApi/getNewsCategories'
-import { ReadingAssistanceMenu } from '../../components/ReadingAssistanceMenu'
 
 //Agregando la importacion para los iconos
+import { GiMoneyStack, GiSoccerBall } from 'react-icons/gi'
 import { IoGameController } from 'react-icons/io5'
-import { GiSoccerBall, GiMoneyStack } from 'react-icons/gi'
 
 import { Helmet } from 'react-helmet-async'
-import styles from './home.module.css'
 import Aside from '../../components/Aside'
 import AsideSearch from '../../components/Aside/AsideSearch'
+import styles from './home.module.css'
 
 const Home = () => {
+  const [] = React.useState(false)
   const { data: heroData, loading: heroLoading } = useNewsByCategory({
-    category: newsCategories.entertainment.category,
-    pageSize: 1,
+    category: newsCategories.sports.category,
+    pageSize: 1
   })
   const { data: businessData, loading: businessLoading } = useNewsByCategory({
     category: newsCategories.business.category,
-    pageSize: 4,
+    pageSize: 4
   })
 
   const { data: entertainmentData, loading: entertainmentLoading } =
     useNewsByCategory({
       category: newsCategories.entertainment.category,
-      pageSize: 4,
+      pageSize: 4
     })
 
   const { data: sportsData, loading: sportsLoading } = useNewsByCategory({
     category: newsCategories.sports.category,
-    pageSize: 4,
+    pageSize: 4
   })
 
   const readingAssistance_getTextArray = () => {
@@ -63,8 +64,8 @@ const Home = () => {
       <Helmet>
         <title>Noticias destacadas | La Portada</title>
         <meta
-          name="description"
-          content="La Portada es una web de noticias recientes y en español. Todo el acontecer del mundo en un solo lugar."
+          name='description'
+          content='La Portada es una web de noticias recientes y en español. Todo el acontecer del mundo en un solo lugar.'
         />
       </Helmet>
 

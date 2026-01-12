@@ -1,12 +1,12 @@
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import styles from './header.module.css'
 import { useCurrentUser } from '../../../hooks/auth/useCurrentUser'
-import { useContext } from 'react'
 import { SuscriptionContext } from '../../../state/context/suscriptionProvider'
+import styles from './header.module.css'
 
 export function Header() {
   const { isUserLoggedIn, currentUser, handleLogout } = useCurrentUser()
-  const { currentUserPlan } = useContext(SuscriptionContext)
+  const { currentUserPlan } = React.useContext(SuscriptionContext)
 
   return (
     <header className={`wrapper ${styles.header}`}>

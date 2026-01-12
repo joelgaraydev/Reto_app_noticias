@@ -1,3 +1,4 @@
+import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useCurrentUser } from '../../../hooks/auth/useCurrentUser'
 import { useLogin } from '../../../hooks/auth/useLogin'
@@ -5,18 +6,19 @@ import { useUserProfile } from '../../../hooks/auth/useUserProfile'
 import styles from './login.module.css'
 
 export function LoginForm() {
+  const [] = React.useState(false)
   const {
     handleLogin,
     loading: loginLoading,
     error: loginError,
-    errorInfo: loginErrorInfo,
+    errorInfo: loginErrorInfo
   } = useLogin()
 
   const {
     handleUserProfile,
     loading: userProfileLoading,
     error: userProfileError,
-    errorInfo: userProfileErrorInfo,
+    errorInfo: userProfileErrorInfo
   } = useUserProfile()
 
   const { checkCurrentUser } = useCurrentUser()
@@ -24,7 +26,7 @@ export function LoginForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm()
 
   const onSubmit = (data) => {
@@ -35,7 +37,7 @@ export function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.loginForm}>
-      <label htmlFor="email" className={styles.loginForm__label}>
+      <label htmlFor='email' className={styles.loginForm__label}>
         Correo
       </label>
       <input
@@ -43,19 +45,19 @@ export function LoginForm() {
           required: 'El correo es requerido. ',
           maxLength: {
             value: 100,
-            message: 'El correo debe tener un máximo de 100 caracteres. ',
+            message: 'El correo debe tener un máximo de 100 caracteres. '
           },
           pattern: {
             value:
-            //eslint-disable-next-line
+              //eslint-disable-next-line
               /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-            message: 'El correo no es valido. ',
-          },
+            message: 'El correo no es valido. '
+          }
         })}
-        id="email"
+        id='email'
         className={styles.loginForm__input}
       />
-      <label htmlFor="password" className={styles.loginForm__label}>
+      <label htmlFor='password' className={styles.loginForm__label}>
         Contraseña
       </label>
       <input
@@ -63,19 +65,19 @@ export function LoginForm() {
           required: 'La constraseña es requerida. ',
           maxLength: {
             value: 100,
-            message: 'La contraseña debe tener un máximo de 100 caracteres. ',
+            message: 'La contraseña debe tener un máximo de 100 caracteres. '
           },
           minLength: {
             value: 8,
-            message: 'La contraseña debe tener un mínimo de 8 caracteres. ',
-          },
+            message: 'La contraseña debe tener un mínimo de 8 caracteres. '
+          }
         })}
-        id="password"
-        type="password"
-        autoComplete="on"
+        id='password'
+        type='password'
+        autoComplete='on'
         className={styles.loginForm__input}
       />
-      <button type="submit" className={styles.loginForm__btn}>
+      <button type='submit' className={styles.loginForm__btn}>
         Iniciar sesión
       </button>
       <div className={styles.loginForm__status}>

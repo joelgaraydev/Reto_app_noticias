@@ -1,13 +1,13 @@
-import { createContext, useState } from 'react'
+import React, { createContext } from 'react'
+import { addNoticiaToUserHistory as handleAddNoticiaToUserHistory } from '../../services/firebase/addNoticiaToUserHistory'
 import { db } from '../../services/firebase/firebaseConfig'
 import { getNewsHistory as handleGetNewsHistory } from '../../services/firebase/getNewsHistory'
-import { addNoticiaToUserHistory as handleAddNoticiaToUserHistory } from '../../services/firebase/addNoticiaToUserHistory'
 
 export const newsHistoryrContext = createContext()
 
 const NewsHistoryProvider = (props) => {
-  const [newsHistory, setNewsHistory] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [newsHistory, setNewsHistory] = React.useState([])
+  const [loading, setLoading] = React.useState(false)
 
   const getNewsHistory = async ({ userEmail }) => {
     try {
@@ -28,7 +28,7 @@ const NewsHistoryProvider = (props) => {
     description,
     source,
     author,
-    urlToImage,
+    urlToImage
   }) => {
     try {
       await handleAddNoticiaToUserHistory({
@@ -39,7 +39,7 @@ const NewsHistoryProvider = (props) => {
         description,
         source,
         author,
-        urlToImage,
+        urlToImage
       })
       setLoading(false)
     } catch (error) {
@@ -54,7 +54,7 @@ const NewsHistoryProvider = (props) => {
         newsHistory,
         loading,
         getNewsHistory,
-        addNoticiaToUserHistory,
+        addNoticiaToUserHistory
       }}
     >
       {props.children}

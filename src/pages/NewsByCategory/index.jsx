@@ -1,3 +1,4 @@
+import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useParams } from 'react-router-dom'
 import { SimpleHeader } from '../../components/layout/Header'
@@ -8,10 +9,11 @@ import { useNewsByCategoryWithInfiniteScroll } from '../../hooks/useNewsByCatego
 import { newsCategories } from '../../services/newsApi/getNewsCategories'
 
 function NewsByCategory() {
+  const [] = React.useState(false)
   let { category } = useParams()
   const { data, loading, isTheEnd } = useNewsByCategoryWithInfiniteScroll({
     category: category,
-    pageSize: 10,
+    pageSize: 10
   })
 
   const categoryName = newsCategories[category]?.categoria
@@ -32,13 +34,13 @@ function NewsByCategory() {
       <Helmet>
         <title>Noticias sobre {categoryName} | La Portada</title>
         <meta
-          name="description"
+          name='description'
           content={`"Noticias sobre ${categoryName} en La Portada. Noticias recientes y en español."`}
         />
       </Helmet>
       <ReadingAssistanceMenu getTextArray={readingAssistance_getTextArray} />
       <SimpleHeader />
-      <main className="wrapper">
+      <main className='wrapper'>
         <h1 style={{ marginLeft: '5px' }}>| Noticias sobre {categoryName}</h1>
         <br />
         <br />
@@ -49,7 +51,7 @@ function NewsByCategory() {
         />
         {loading && <Loader />}
         {isTheEnd && data.length > 0 && (
-          <p className="message_default">
+          <p className='message_default'>
             Has revisado todas las noticias sobre <span>{categoryName}</span>
           </p>
         )}

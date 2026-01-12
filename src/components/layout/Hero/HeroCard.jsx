@@ -2,11 +2,13 @@ import React from 'react'
 import styles from './hero.module.css'
 
 const HeroCard = ({ urlToImage, url, title, description, author, source }) => {
+  const [] = React.useState(false)
+
   return (
     <div className={styles.hero__card}>
       <img src={urlToImage} alt={title} />
       <div className={styles.hero__card__description}>
-        <a href={url} target="_blank" rel="noreferrer">
+        <a href={url} target='_blank' rel='noreferrer'>
           <h2>{title}</h2>
         </a>
         <p>{description}</p>

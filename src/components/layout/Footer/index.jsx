@@ -1,8 +1,10 @@
-import styles from './footer.module.css'
-import { newsCategories } from '../../../services/newsApi/getNewsCategories'
+import React from 'react'
 import { Link } from 'react-router-dom'
+import { newsCategories } from '../../../services/newsApi/getNewsCategories'
+import styles from './footer.module.css'
 
 export default function Footer() {
+  const [] = React.useState(false)
   const categories = Object.values(newsCategories)
 
   return (

@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react'
+import React, { createContext } from 'react'
 
 export const SuscriptionContext = createContext()
 
@@ -9,9 +9,9 @@ const standardPlan = {
   details: [
     'Navegación sin límite',
     'Noticias exclusivas cada semana.',
-    'Guarda tus noticias favoritas',
+    'Guarda tus noticias favoritas'
   ],
-  otherPlanName: 'Plan Premium',
+  otherPlanName: 'Plan Premium'
 }
 
 const premiumPlan = {
@@ -22,16 +22,16 @@ const premiumPlan = {
     'Navegación sin límite',
     'Noticias exclusivas en caliente.',
     'Guarda tus noticias favoritas',
-    'Sin publicidad',
+    'Sin publicidad'
   ],
-  otherPlanName: 'Plan Estandar',
+  otherPlanName: 'Plan Estandar'
 }
 
 export const SuscriptionProvider = (props) => {
-  const [currentUserPlan, setCurrentUserPlan] = useState(
+  const [currentUserPlan, setCurrentUserPlan] = React.useState(
     JSON.parse(localStorage.getItem('currentUserPlan')) || null
   )
-  const [suscription, setSuscription] = useState(
+  const [suscription, setSuscription] = React.useState(
     JSON.parse(localStorage.getItem('suscription')) || standardPlan
   )
 
@@ -56,7 +56,7 @@ export const SuscriptionProvider = (props) => {
         changePlan,
         suscription,
         currentUserPlan,
-        updateCurrentUserPlan,
+        updateCurrentUserPlan
       }}
     >
       {props.children}

@@ -1,18 +1,20 @@
 import { useEffect } from 'react'
-import { createPortal } from 'react-dom'
 import { useShow } from '../../hooks/utils/useShow'
 import { readingAssistant } from '../../services/readingAssistant'
 import styles from './readingAssistanceMenu.module.css'
 
-import { ImHeadphones } from 'react-icons/im'
+import React from 'react'
+import { createPortal } from 'react-dom'
 import { HiSpeakerphone, HiStop, HiVolumeUp } from 'react-icons/hi'
+import { ImHeadphones } from 'react-icons/im'
 
 export function ReadingAssistanceMenu({ getTextArray }) {
+  const [] = React.useState(false)
   const { show, switch_off, switch_on } = useShow()
   const {
     show: pauseActive,
     switch_on: pauseOn,
-    switch_off: pauseOff,
+    switch_off: pauseOff
   } = useShow()
 
   const startReading = () => {
